@@ -1,0 +1,57 @@
+<mat-card>
+    <mat-card-title>
+        Please Sign Up for Account
+    </mat-card-title>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+        <mat-form-field appearance="outline">
+            <mat-label>Email or Username</mat-label>
+            <input matInput formControlName="user">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Enter Password</mat-label>
+            <input matInput formControlName="password">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Confirm Password</mat-label>
+            <input matInput formControlName="rePassword">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInputformControlName="email">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Phone Number</mat-label>
+            <input matInput formControlName="phone">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Employee ID</mat-label>
+            <input matInput formControlName="empId">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Vehicle Plate Number</mat-label>
+            <input matInput formControlName="plateNumber">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Mark your Office Location</mat-label>
+            <mat-select formControlName="location">
+                <mat-option *ngFor="let location of locations" [value]="location">
+                    {{location}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="onSignUp()">SignUp</button><br>
+            <p class="text-center font-italic text-secondary mt-3">Already a member? <a routerLink="/login"
+                    routerLinkActive="active">login</a></p>
+        </mat-card-actions>
+    </mat-card-content>
+</mat-card>

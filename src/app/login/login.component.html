@@ -1,0 +1,25 @@
+<mat-card [formGroup]="loginForm">
+    <mat-card-title>
+        Please Login
+    </mat-card-title>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+        <mat-form-field appearance="outline">
+            <mat-label>Email or Username</mat-label>
+            <input matInput formControlName="user">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput formControlName="password">
+        </mat-form-field>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="onLogin()">login</button><br>
+            <p class="text-center font-italic text-secondary mt-3"><a routerLink="/" routerLinkActive="active">Forgot
+                    Password? </a></p>
+            <p class="text-center font-italic text-secondary mt-3">Not a member yet? <a routerLink="/signup"
+                    routerLinkActive="active">signUp</a></p>
+            <mat-hint> </mat-hint>
+        </mat-card-actions>
+    </mat-card-content>
+</mat-card>
