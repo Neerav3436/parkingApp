@@ -4,16 +4,26 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SignupComponent } from './signup/signup.component';
-import { MatCardModule, MatButtonModule, MatInputModule, MatDividerModule, MatOptionModule, MatSelectModule } from '@angular/material';
+import { MatCardModule, MatButtonModule, MatInputModule, MatDividerModule, MatOptionModule, MatSelectModule, MatToolbarModule, MatMenuModule } from '@angular/material';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ExpensesComponent } from './expenses/expenses.component';
+import { IndividualSummaryComponent } from './individual-summary/individual-summary.component';
+import { GroupSummaryComponent } from './group-summary/group-summary.component';
+import { HeaderComponent } from './header/header.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from './services/token.interceptor';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    ExpensesComponent,
+    IndividualSummaryComponent,
+    GroupSummaryComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -26,9 +36,16 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     ReactiveFormsModule,
     FormsModule,
     MatOptionModule,
-    MatSelectModule
+    MatSelectModule,
+    MatToolbarModule,
+    MatMenuModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

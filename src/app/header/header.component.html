@@ -1,0 +1,17 @@
+<mat-toolbar style="display:flex;flex-direction: row;">
+    <button mat-button class="noBorder" [matMenuTriggerFor]="menu">Summary</button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item class="noBorder"><a routerLink="/individualSummary/:id">Individual</a></button>
+        <button mat-menu-item class="noBorder"><a routerLink="/groupSummary/:id">Group</a></button>
+    </mat-menu>
+    <button mat-button class="noBorder"><a routerLink="/expenses/:id">Expenses</a></button>
+    <div mat-card-avatar [matMenuTriggerFor]="avatar"
+        style="background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');background-size: cover;margin-left: auto;cursor:pointer;">
+    </div>
+    <mat-menu #avatar="matMenu">
+        <button mat-menu-item class="noBorder" disabled><a routerLink="/individualSummary/:id">UserName</a></button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item class="noBorder"><a routerLink="/individualSummary/:id">Settings</a></button>
+        <button mat-menu-item class="noBorder"><a routerLink="/login">Logout</a></button>
+    </mat-menu>
+</mat-toolbar>

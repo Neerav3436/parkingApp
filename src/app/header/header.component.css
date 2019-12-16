@@ -1,0 +1,8 @@
+.noBorder{
+    outline:none;
+}
+a{
+    cursor: default; 
+    text-decoration: none; 
+    color: black; 
+}
