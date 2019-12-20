@@ -5,7 +5,7 @@
     <mat-divider></mat-divider>
     <mat-card-content>
         <mat-form-field appearance="outline">
-            <mat-label>Email or Username</mat-label>
+            <mat-label>Email</mat-label>
             <input matInput formControlName="user">
         </mat-form-field>
 
@@ -19,19 +19,10 @@
             <input matInput type="password" formControlName="rePassword">
         </mat-form-field>
 
-        <mat-form-field appearance="outline">
-            <mat-label>Email</mat-label>
-            <input matInput formControlName="email">
-        </mat-form-field>
-
-        <mat-form-field appearance="outline">
-            <mat-label>Phone Number</mat-label>
-            <input matInput formControlName="phone">
-        </mat-form-field>
-
         <mat-card-actions>
-            <button mat-raised-button color="primary" (click)="onSignUp()">SignUp</button><br>
-            <p class="text-center font-italic text-secondary mt-3">Already a member? <a routerLink="/login"
+            <button mat-raised-button color="primary" [disabled]="!signUpForm.valid"
+                (click)="onSignUp()">SignUp</button><br>
+            <p class="text-center font-italic text-secondary mt-3">Already a member? <a routerLink="/"
                     routerLinkActive="active">login</a></p>
         </mat-card-actions>
     </mat-card-content>

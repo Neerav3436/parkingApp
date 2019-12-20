@@ -5,7 +5,7 @@
     <mat-divider></mat-divider>
     <mat-card-content>
         <mat-form-field appearance="outline">
-            <mat-label>Email or Username</mat-label>
+            <mat-label>Email</mat-label>
             <input matInput formControlName="user" autocomplete="off">
         </mat-form-field>
 
@@ -14,7 +14,9 @@
             <input matInput type="password" formControlName="password">
         </mat-form-field>
         <mat-card-actions>
-            <button mat-raised-button color="primary" (click)="onLogin()">login</button><br>
+            <button mat-raised-button color="primary" (click)="onLogin()">login</button>
+            <button mat-raised-button color="warn" (click)="authService.loginWithGoogle()" class="mt-3">login with Gmail
+                Account</button><br>
             <p class="text-center font-italic text-secondary mt-3"><a routerLink="/" routerLinkActive="active">Forgot
                     Password? </a></p>
             <p class="text-center font-italic text-secondary mt-3">Not a member yet? <a routerLink="/signup"

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthenticationService } from '../services/Auth.service';
 
 @Component({
   selector: 'login',
@@ -8,9 +9,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  private loginForm: FormGroup;
-  constructor(private fb: FormBuilder, private router: Router) { }
-
+  public loginForm: FormGroup;
+  constructor(private fb: FormBuilder, private router: Router, public authService: AuthenticationService) {
+  }
   ngOnInit() {
     this.loginForm = this.fb.group({
       user: [''],
@@ -19,10 +20,6 @@ export class LoginComponent implements OnInit {
   }
 
   public onLogin() {
-    if (this.loginForm.get('user').value === '123' && this.loginForm.get('password').value === '123') {
-      this.router.navigateByUrl('/expenses/');
-    } else {
-      this.router.navigateByUrl('/login');
-    }
+    this.authService.SignIn(this.loginForm.get('user').value, this.loginForm.get('password').value);
   }
 }
